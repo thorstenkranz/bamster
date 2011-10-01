@@ -165,6 +165,7 @@ char object::collidesWith (object &o)
 	return 0;
 }
 
+object::~object() {};
 void object::plot() { cout << "plot of object called" << endl; }
 bool object::timerCallback (double dt) {
 	if (hitpoints <= 0)
