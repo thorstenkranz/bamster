@@ -22,8 +22,10 @@ class game
 	private:
 		object * thePlayer;
 		list<object *> otherObjects;
+	bool firstResize;
 
 		bool firstResize;
+		firstResize=1;
 
 		unsigned int noBlockGeneration;
 
@@ -31,6 +33,11 @@ class game
 		void spawnHoleRow();
 		void handleCollisions();
 
+		if (firstResize) {
+			glutReshapeWindow(640,480);
+			firstResize=0;
+			printf("First Reshape");
+		}
 
 
 	public:

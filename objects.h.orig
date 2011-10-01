@@ -53,16 +53,19 @@ class game;
 class object {
 	protected:
 	public:
+<<<<<<< HEAD
 		//! Pointer to the running game, allowing objects to spawnobjects or change the score.
 		static game * activGame;
 
 
+=======
+		static double gameTime;
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 		double xpos, ypos;
 		double xvel, yvel;
 		
 		virtual ~object() {}
 		boundingBox b;
-		virtual void stopMeFalling(double height);
 		virtual void stopMeFalling(double height);
 		int hitpoints;
 		object (double x, double y); 
@@ -73,31 +76,29 @@ class object {
 		virtual void plot();
 		virtual bool timerCallback(double dt);
 		virtual void collision(object *with, char fromWhere);
+<<<<<<< HEAD
 		virtual ~object();
+=======
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 };
 
 class fallingObject : public object
 {
 	private:
 	public:
+<<<<<<< HEAD
 		double gravity;
+=======
+		float yvel;
+		double gravity;
+		unsigned int hitpoints;
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 		fallingObject (double x, double y);
-		fallingObject (double x, double y) : object (x,y), gravity(0.1) {}	
-
-		virtual void stopMeFalling (double height)
-		{
-			cout << "autsch" << endl;
 		virtual void stopMeFalling (double height);
 		virtual void collision (object *with, char fromWhere);
 		virtual objectInfo getObjectInfo();
 		virtual bool timerCallback(double dt);
 };
-
-class game ;
-
-extern game * activGame;
-
-void spawnObject (object *p);
 
 
 
@@ -108,7 +109,11 @@ class vwall : public object
 	public:
 		virtual void plot();
 		void updateBoundingBox ();
+<<<<<<< HEAD
 		vwall (double x, double y, double length);
+=======
+		vwall (double x, double y, double l);
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 };
 
 class hwall : public object
@@ -118,7 +123,11 @@ class hwall : public object
 	public:
 		virtual void plot();
 		void updateBoundingBox ();
-			glColor3f(0.0f, 1.0f,0.0f);
+<<<<<<< HEAD
+		hwall (double x, double y, double length);
+=======
+		hwall (double x, double y, double l);
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 };
 
 class block: public fallingObject
@@ -132,6 +141,7 @@ class block: public fallingObject
 	public:
 		virtual void plot();
 		void updateBoundingBox ();
+<<<<<<< HEAD
 		block (double x, double y, double length, int color);
 		virtual ~block();
 		virtual void collision (object *with, char fromWhere);
@@ -149,11 +159,18 @@ class explodingBlock : public block
 
 
 
+=======
+		block (double x, double y, double l);
+		virtual ~block();
+		virtual void collision (object *with, char fromWhere);
+		virtual bool timerCallback(double dt);
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 };
 
 
 class coloredExplosion : public object
 {
+
 	private:
 		double size;
 	public:
@@ -163,6 +180,7 @@ class coloredExplosion : public object
 		void updateBoundingBox();
 		virtual objectInfo getObjectInfo() { return _explosion_; }
 		bool timerCallback (double dt);
+
 };
 
 
@@ -180,9 +198,11 @@ class bullet : public object
 		virtual void collision (object *with, char fromWhere);
 		bool timerCallback (double dt);
 };
-            glColor3f(1, 1, 1);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> dd5b0dced155b6fe35f5684cb6197bb133812138
 
 class addon : public fallingObject
 {
